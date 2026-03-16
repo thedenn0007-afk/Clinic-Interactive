@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Lumina Skin Studio — Bangalore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:       #0A7B6E;
+  --teal-deep:  #065A50;
+  --teal-mid:   #0E8F80;
+  --teal-light: #19B09E;
+  --teal-pale:  #CDF0EB;
+  --teal-faint: #EAF7F5;
+  --teal-ultra: #F2FBFA;
+  --gold:       #C49A3A;
+  --gold-l:     #D4AE52;
+  --gold-pale:  #F5E8C8;
+  --white:      #FFFFFF;
+  --off:        #F8FFFE;
+  --grey:       #F2F7F6;
+  --charcoal:   #1A2E2C;
+  --ch2:        #2C3E3C;
+  --muted:      #6B8A87;
+  --muted-l:    #9AB5B2;
+  --border:     rgba(10,123,110,0.14);
+  --border-g:   rgba(196,154,58,0.2);
+  --green:      #1A9B5A;
+  --amber:      #D48A0A;
+  --red:        #C4402A;
+  --shadow:     0 4px 24px rgba(10,123,110,0.1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--off);
+  color:var(--charcoal);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* Grain texture */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity:0.6;
+}
+
+/* ════ HERO ════ */
+.hero{
+  background:var(--teal);
+  min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:60px 28px 52px;
+  position:relative;overflow:hidden;
+}
+
+.orb{position:absolute;border-radius:50%;pointer-events:none;}
+.orb1{width:300px;height:300px;top:-80px;right:-60px;background:radial-gradient(circle,rgba(255,255,255,0.07),transparent 65%);}
+.orb2{width:240px;height:240px;bottom:-40px;left:-50px;background:radial-gradient(circle,rgba(26,176,158,0.25),transparent 65%);}
+.orb3{width:180px;height:180px;top:40%;right:10%;background:radial-gradient(circle,rgba(196,154,58,0.1),transparent 65%);}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:9px;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);font-weight:500;margin-bottom:22px;
+  opacity:0;animation:up 0.9s 0.2s ease both;
+}
+.hero-badge::before,.hero-badge::after{content:'';width:16px;height:1px;background:rgba(255,255,255,0.35);}
+
+.hero-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(46px,13vw,68px);font-weight:400;line-height:0.93;
+  color:white;letter-spacing:-0.5px;margin-bottom:8px;
+  opacity:0;animation:up 0.9s 0.38s ease both;
+}
+.hero-title em{font-style:italic;color:var(--gold-l);}
+
+.hero-sub{
+  font-size:9px;letter-spacing:6px;text-transform:uppercase;
+  color:rgba(255,255,255,0.38);margin-bottom:24px;
+  opacity:0;animation:up 0.9s 0.55s ease both;
+}
+
+.hero-div{
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  opacity:0;animation:up 0.9s 0.7s ease both;
+}
+.hdl{flex:1;height:1px;background:rgba(255,255,255,0.18);}
+.hdc{color:var(--gold-l);font-size:14px;opacity:0.7;}
+
+.hero-tag{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:clamp(14px,4vw,17px);color:rgba(255,255,255,0.5);
+  line-height:1.75;max-width:290px;margin-bottom:40px;
+  opacity:0;animation:up 0.9s 0.85s ease both;
+}
+
+.hero-stats{
+  display:flex;gap:1px;background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.14);overflow:hidden;
+  opacity:0;animation:up 0.9s 1s ease both;
+}
+.hs{flex:1;background:rgba(255,255,255,0.06);padding:14px 8px;text-align:center;}
+.hs-n{font-family:'DM Serif Display',serif;font-size:22px;color:var(--gold-l);margin-bottom:3px;}
+.hs-l{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.38);}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ════ SECTION ════ */
+.sec{padding:56px 20px;}
+.sec+.sec{border-top:1px solid var(--border);}
+
+.sec-eye{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--teal);font-weight:600;margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-eye::before{content:'';width:16px;height:2px;background:var(--teal);}
+
+.sec-h{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(26px,7.5vw,38px);color:var(--charcoal);line-height:1.15;
+}
+.sec-h em{font-style:italic;color:var(--teal);}
+.sec-rule{width:32px;height:2px;background:var(--teal);opacity:0.35;margin:11px 0 24px;}
+
+/* ════ TREATMENT BOOKING ════ */
+.svc-bg{background:var(--off);}
+
+.svc-tabs{
+  display:flex;gap:0;margin-bottom:22px;
+  background:var(--teal-faint);border:1px solid var(--border);
+  padding:4px;gap:4px;
+}
+.stab{
+  flex:1;background:transparent;border:none;
+  padding:9px 4px;text-align:center;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;transition:all 0.25s;
+}
+.stab.active{background:white;color:var(--teal);box-shadow:0 2px 10px rgba(10,123,110,0.1);}
+
+.svc-list{display:flex;flex-direction:column;gap:9px;margin-bottom:22px;}
+
+.svc-card{
+  background:white;border:1px solid var(--border);padding:14px 16px;
+  cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;
+  animation:fadeUp 0.35s ease both;
+}
+.svc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);opacity:0;transition:opacity 0.2s;}
+.svc-card.sel{border-color:var(--teal);background:var(--teal-ultra);}
+.svc-card.sel::before{opacity:1;}
+
+.sc-row{display:flex;align-items:center;gap:12px;}
+.sc-icon{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal-pale),var(--teal-faint));
+  border:1px solid var(--border);display:flex;align-items:center;
+  justify-content:center;font-size:19px;flex-shrink:0;
+}
+.sc-info{flex:1;}
+.sc-name{font-family:'DM Serif Display',serif;font-size:15px;color:var(--charcoal);margin-bottom:2px;}
+.sc-desc{font-size:11px;color:var(--muted);line-height:1.4;}
+.sc-right{text-align:right;flex-shrink:0;}
+.sc-price{font-family:'DM Serif Display',serif;font-size:16px;color:var(--teal);display:block;margin-bottom:2px;}
+.sc-dur{font-size:9px;color:var(--muted-l);letter-spacing:0.5px;}
+
+/* Pkg tracking embed */
+.pkg-track{
+  background:linear-gradient(135deg,var(--teal-faint),white);
+  border:1px solid var(--border);padding:16px;margin-bottom:22px;
+}
+.pkg-track-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.pkg-name{font-family:'DM Serif Display',serif;font-size:15px;color:var(--charcoal);}
+.pkg-price{font-size:12px;color:var(--teal);font-weight:600;}
+.pkg-sessions-row{display:flex;gap:6px;margin-bottom:8px;}
+.pkg-dot{
+  width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.pkg-dot.done{background:var(--teal);border-color:var(--teal);color:white;animation:dotPop 0.4s ease both;}
+.pkg-dot.rem{background:var(--grey);border-color:transparent;color:var(--muted-l);}
+@keyframes dotPop{0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.pkg-foot{font-size:11px;color:var(--muted);}
+.pkg-foot span{color:var(--teal);font-weight:600;}
+
+.cont-btn{
+  width:100%;padding:14px;background:var(--teal);border:none;color:white;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;
+  transition:all 0.22s;
+}
+.cont-btn:active{background:var(--teal-deep);transform:scale(0.99);}
+
+/* Booking flow */
+.bk-flow{display:none;animation:fadeUp 0.3s ease both;}
+.bk-flow.active{display:block;}
+
+.bk-back{
+  background:none;border:none;color:var(--muted);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  display:flex;align-items:center;gap:6px;margin-bottom:18px;padding:0;
+}
+.bk-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal-faint);border:1px solid var(--border);
+  padding:7px 14px;font-size:12px;color:var(--charcoal);
+  font-weight:500;margin-bottom:20px;
+}
+.bk-pill em{font-family:'DM Serif Display',serif;font-style:normal;color:var(--teal);font-size:15px;}
+
+.blbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:9px;font-weight:600;}
+
+.doc-picks{display:flex;flex-direction:column;gap:9px;margin-bottom:18px;}
+.dp{
+  background:white;border:1px solid var(--border);padding:13px 15px;
+  cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:13px;
+}
+.dp.sel{border-color:var(--teal);background:var(--teal-ultra);}
+.dp-av{
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-family:'DM Serif Display',serif;font-size:16px;
+  flex-shrink:0;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.dp-info{flex:1;}
+.dp-name{font-family:'DM Serif Display',serif;font-size:15px;color:var(--charcoal);}
+.dp-spec{font-size:11px;color:var(--muted);margin-top:2px;}
+.dp-radio{
+  width:18px;height:18px;border-radius:50%;border:1.5px solid var(--border);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;
+  transition:all 0.2s;
+}
+.dp.sel .dp-radio{background:var(--teal);border-color:var(--teal);color:white;}
+
+.bk-input{
+  width:100%;background:white;border:1px solid var(--border);
+  padding:12px 14px;color:var(--charcoal);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:300;
+  outline:none;transition:border-color 0.2s;margin-bottom:13px;color-scheme:light;
+}
+.bk-input::placeholder{color:var(--muted-l);}
+.bk-input:focus{border-color:var(--teal);}
+
+.slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:18px;}
+.slot{
+  background:white;border:1px solid var(--border);padding:9px 4px;
+  text-align:center;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11.5px;font-weight:400;color:var(--charcoal);cursor:pointer;transition:all 0.2s;
+}
+.slot.booked{background:var(--grey);border-color:transparent;color:var(--muted-l);cursor:not-allowed;text-decoration:line-through;font-size:10px;}
+.slot.sel{background:var(--teal);border-color:var(--teal);color:white;}
+.slot:active:not(.booked){transform:scale(0.97);}
+
+.wa-btn{
+  width:100%;padding:15px;background:linear-gradient(135deg,#128C7E,#075E54);
+  border:none;color:white;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:all 0.22s;
+}
+.wa-btn:active{transform:scale(0.99);opacity:0.9;}
+.wa-svg{width:17px;height:17px;fill:white;flex-shrink:0;}
+
+/* ════ RESULTS & TRUST ════ */
+.trust-bg{background:var(--grey);}
+
+.timeline-card{
+  background:white;border:1px solid var(--border);padding:18px;margin-bottom:14px;
+}
+.tc-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
+.tc-avatar{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal-pale),var(--teal-faint));
+  border:2px solid var(--teal-pale);display:flex;align-items:center;
+  justify-content:center;font-family:'DM Serif Display',serif;font-size:17px;
+  color:var(--teal);
+}
+.tc-patient{font-family:'DM Serif Display',serif;font-size:16px;color:var(--charcoal);}
+.tc-meta{font-size:11px;color:var(--muted);margin-top:2px;}
+
+.timeline{position:relative;padding-left:24px;}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:1.5px;background:linear-gradient(180deg,var(--teal),var(--teal-pale));}
+
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{
+  position:absolute;left:-24px;top:4px;
+  width:16px;height:16px;border-radius:50%;
+  background:white;border:2px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-size:8px;color:var(--teal);
+}
+.tl-date{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:3px;font-weight:600;}
+.tl-treatment{font-family:'DM Serif Display',serif;font-size:14px;color:var(--charcoal);margin-bottom:2px;}
+.tl-note{font-size:11px;color:var(--muted);line-height:1.4;}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  margin-bottom:16px;
+}
+.stat-box{background:white;padding:16px 8px;text-align:center;}
+.sb-n{font-family:'DM Serif Display',serif;font-size:22px;color:var(--teal);}
+.sb-l{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-l);margin-top:3px;}
+
+.testimonial{
+  background:white;border:1px solid var(--border);
+  border-left:3px solid var(--teal);padding:16px;
+}
+.test-text{font-family:'DM Serif Display',serif;font-style:italic;font-size:14px;color:var(--ch2);line-height:1.7;margin-bottom:10px;}
+.test-name{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:600;}
+.test-stars{color:var(--gold);font-size:13px;margin-bottom:6px;}
+
+/* ════ SKIN QUIZ ════ */
+.quiz-bg{background:var(--off);}
+
+.quiz-card{background:white;border:1px solid var(--border);padding:22px 18px;}
+
+.quiz-prog{margin-bottom:22px;}
+.qp-row{display:flex;gap:4px;margin-bottom:7px;}
+.qp-seg{flex:1;height:3px;background:var(--teal-pale);border-radius:2px;transition:background 0.3s;}
+.qp-seg.done{background:var(--teal);}
+.qp-seg.active{background:var(--teal-light);}
+.qp-lbl{display:flex;justify-content:space-between;font-size:10px;color:var(--muted-l);}
+
+.quiz-q{font-family:'DM Serif Display',serif;font-size:18px;color:var(--charcoal);margin-bottom:16px;line-height:1.3;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{
+  background:var(--teal-faint);border:1px solid var(--border);padding:9px 15px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;
+  font-weight:400;color:var(--ch2);cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;
+}
+.chip.sel{background:var(--teal);border-color:var(--teal);color:white;font-weight:500;}
+.chip:active{transform:scale(0.97);}
+
+.quiz-nav{display:flex;justify-content:flex-end;margin-top:20px;gap:9px;}
+.qbtn{
+  background:none;border:1px solid var(--border);padding:9px 18px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;transition:all 0.2s;
+}
+.qbtn.pri{background:var(--teal);border-color:var(--teal);color:white;}
+.qbtn:active{transform:scale(0.98);}
+
+/* Quiz result */
+.quiz-result{display:none;animation:fadeUp 0.4s ease both;}
+.quiz-result.show{display:block;}
+
+.score-wrap{
+  background:white;border:1px solid var(--border);
+  padding:26px 18px;text-align:center;margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.score-wrap::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--teal-faint) 0%,white 55%);opacity:0.5;
+}
+.score-lbl{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;position:relative;z-index:2;}
+
+.score-arc{width:180px;height:100px;margin:0 auto 12px;position:relative;z-index:2;}
+
+.score-grade{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:2;margin-bottom:4px;}
+.score-sub{font-size:11px;color:var(--muted);position:relative;z-index:2;}
+
+/* Treatment plan */
+.plan-card{background:white;border:1px solid var(--border);padding:16px;margin-bottom:12px;}
+.plan-title{font-family:'DM Serif Display',serif;font-size:16px;color:var(--charcoal);margin-bottom:14px;}
+
+.plan-timeline{position:relative;padding-left:22px;}
+.plan-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--teal),var(--teal-pale));}
+.plan-item{position:relative;margin-bottom:12px;display:flex;gap:10px;}
+.plan-dot{position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--teal);border:2px solid white;box-shadow:0 1px 4px rgba(10,123,110,0.3);}
+.plan-week{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600;flex-shrink:0;margin-top:2px;min-width:50px;}
+.plan-step{font-size:12.5px;color:var(--charcoal);}
+
+.recs{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.rec{
+  background:var(--teal-faint);border:1px solid var(--border);
+  padding:11px 14px;display:flex;align-items:flex-start;gap:9px;
+}
+.rec-i{color:var(--teal);font-size:15px;flex-shrink:0;margin-top:1px;}
+.rec-t{font-size:12px;color:var(--ch2);line-height:1.5;}
+
+.quiz-wa-btn{
+  width:100%;padding:14px;background:linear-gradient(135deg,#128C7E,#075E54);
+  border:none;color:white;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all 0.22s;
+}
+.quiz-wa-btn:active{transform:scale(0.99);}
+
+.retake-btn{
+  width:100%;background:none;border:1px solid var(--border);padding:10px;margin-top:9px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);cursor:pointer;
+}
+
+/* ════ PATIENT PORTAL ════ */
+.portal-bg{background:var(--grey);}
+
+/* Portal tabs */
+.portal-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid var(--border);}
+.ptab{
+  flex:1;background:transparent;border:none;padding:11px 4px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;transition:all 0.22s;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+}
+.ptab.active{color:var(--teal);border-bottom-color:var(--teal);}
+
+.portal-panel{display:none;animation:fadeUp 0.3s ease both;}
+.portal-panel.active{display:block;}
+
+/* Patient header */
+.patient-hdr{
+  background:linear-gradient(135deg,var(--teal),var(--teal-deep));
+  padding:18px;display:flex;align-items:center;gap:14px;
+  margin-bottom:14px;
+}
+.pat-av{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:22px;color:white;
+  flex-shrink:0;
+}
+.pat-name{font-family:'DM Serif Display',serif;font-size:18px;color:white;}
+.pat-id{font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:1px;margin-top:2px;}
+.pat-since{
+  margin-left:auto;text-align:right;
+  font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);
+}
+.pat-since span{display:block;color:var(--gold-l);font-size:12px;margin-top:2px;}
+
+/* Session history */
+.sess-card{
+  background:white;border:1px solid var(--border);padding:14px 16px;
+  margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;
+}
+.sess-num{
+  width:28px;height:28px;border-radius:50%;background:var(--teal);
+  color:white;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px;
+}
+.sess-info{flex:1;}
+.sess-date{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:3px;font-weight:600;}
+.sess-treatment{font-family:'DM Serif Display',serif;font-size:14px;color:var(--charcoal);margin-bottom:2px;}
+.sess-detail{font-size:11px;color:var(--muted);line-height:1.4;}
+.sess-dr{font-size:10px;color:var(--muted-l);margin-top:4px;}
+
+/* Prescription card */
+.rx-card{
+  background:white;border:1px solid var(--border);padding:18px;margin-bottom:12px;
+}
+.rx-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);
+}
+.rx-title{font-family:'DM Serif Display',serif;font-size:17px;color:var(--charcoal);}
+.rx-date{font-size:10px;color:var(--muted-l);letter-spacing:0.5px;}
+
+.rx-section{margin-bottom:14px;}
+.rx-timing{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--teal);font-weight:600;margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.rx-timing::after{content:'';flex:1;height:1px;background:var(--teal-pale);}
+.rx-item{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;
+  background:var(--teal-ultra);border:1px solid var(--border);margin-bottom:6px;
+}
+.rx-icon{font-size:16px;flex-shrink:0;}
+.rx-name{font-size:13px;color:var(--charcoal);font-weight:500;}
+.rx-use{font-size:10px;color:var(--muted);margin-top:1px;}
+
+.rx-btns{display:flex;gap:9px;}
+.rx-btn{
+  flex:1;padding:11px;border-radius:1px;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  transition:all 0.22s;display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.rx-btn.outline{background:none;border:1px solid var(--border);color:var(--muted);}
+.rx-btn.teal{background:var(--teal);border:none;color:white;}
+.rx-btn:active{transform:scale(0.98);}
+
+/* Reminder card */
+.reminder-card{
+  background:linear-gradient(135deg,var(--teal-faint),white);
+  border:1px solid var(--border);padding:18px;margin-bottom:12px;
+}
+.rem-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.rem-icon{
+  width:40px;height:40px;background:var(--teal);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  flex-shrink:0;
+}
+.rem-title{font-family:'DM Serif Display',serif;font-size:17px;color:var(--charcoal);}
+.rem-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+
+.rem-details{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.rem-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:white;border:1px solid var(--border);}
+.rem-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);flex:0 0 80px;}
+.rem-value{font-size:13px;color:var(--charcoal);font-weight:500;}
+
+.rem-wa-btn{
+  width:100%;padding:14px;background:linear-gradient(135deg,#128C7E,#075E54);
+  border:none;color:white;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.22s;
+}
+.rem-wa-btn:active{transform:scale(0.99);}
+
+.portal-label{
+  background:var(--teal);color:white;
+  padding:12px 16px;text-align:center;
+  font-size:11px;letter-spacing:0.5px;line-height:1.6;
+  margin-top:4px;
+}
+.portal-label strong{font-weight:700;}
+
+/* ════ FOOTER ════ */
+.footer{background:var(--teal-deep);padding:44px 20px 60px;text-align:center;border-top:1px solid var(--border);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:24px;color:white;font-style:italic;margin-bottom:5px;}
+.footer-logo em{color:var(--gold-l);}
+.footer-sub{font-size:8px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:16px;}
+.footer-info{font-size:12px;color:rgba(255,255,255,0.22);line-height:2;letter-spacing:0.3px;}
+.footer-rule{width:28px;height:2px;background:var(--gold-l);margin:16px auto 0;opacity:0.35;}
+
+/* OVERLAY */
+.overlay{position:fixed;inset:0;background:rgba(13,42,38,0.8);z-index:800;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.overlay.open{opacity:1;pointer-events:all;}
+.sheet{
+  width:100%;background:white;border-radius:16px 16px 0 0;
+  border-top:2px solid var(--teal);padding:24px 20px 52px;
+  max-height:88svh;overflow-y:auto;transform:translateY(100%);position:relative;
+  transition:transform 0.4s cubic-bezier(0.32,0.72,0,1);
+}
+.overlay.open .sheet{transform:translateY(0);}
+.sheet-handle{width:32px;height:3px;background:var(--teal-pale);margin:0 auto 20px;}
+.sheet-close{position:absolute;top:18px;right:18px;background:var(--teal-faint);border:1px solid var(--border);width:30px;height:30px;border-radius:50%;color:var(--teal);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--charcoal);border:1px solid rgba(10,123,110,0.3);color:white;padding:10px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;opacity:0;transition:all 0.3s;z-index:9000;white-space:nowrap;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<header class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-badge">Koramangala · Bangalore</div>
+  <h1 class="hero-title"><em>Lumina</em> Skin Studio</h1>
+  <p class="hero-sub">Premium Dermatology & Aesthetics</p>
+  <div class="hero-div"><div class="hdl"></div><div class="hdc">◆</div><div class="hdl"></div></div>
+  <p class="hero-tag">"Science-led care. Visible results.<br>Skin you're proud to show."</p>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">2100+</div><div class="hs-l">Patients</div></div>
+    <div class="hs"><div class="hs-n">4.9★</div><div class="hs-l">Rating</div></div>
+    <div class="hs"><div class="hs-n">94%</div><div class="hs-l">Success</div></div>
+  </div>
+</header>
+
+<!-- ════ §1 BOOKING ════ -->
+<section class="sec svc-bg" id="booking">
+  <div class="sec-eye">Book Now</div>
+  <h2 class="sec-h">Treatment <em>Booking</em></h2>
+  <div class="sec-rule"></div>
+
+  <!-- Package tracking preview -->
+  <div class="pkg-track">
+    <div class="pkg-track-header">
+      <div>
+        <div class="pkg-name">Pigmentation Laser Package</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">6 Sessions · Active</div>
+      </div>
+      <div class="pkg-price">₹22,000</div>
+    </div>
+    <div class="pkg-sessions-row" id="pkgDots"></div>
+    <div class="pkg-foot"><span>3 sessions complete</span> · 3 remaining</div>
+  </div>
+
+  <!-- Service list -->
+  <div id="svcView">
+    <div class="svc-tabs">
+      <button class="stab active" onclick="switchTab('skin',this)">Skin</button>
+      <button class="stab" onclick="switchTab('laser',this)">Laser</button>
+      <button class="stab" onclick="switchTab('aesthetic',this)">Aesthetic</button>
+    </div>
+    <div class="svc-list" id="svcList"></div>
+    <button class="cont-btn" onclick="goBook()">Continue to Book →</button>
+  </div>
+
+  <!-- Booking flow -->
+  <div class="bk-flow" id="bkFlow">
+    <button class="bk-back" onclick="backSvc()">← Back to Treatments</button>
+    <div class="bk-pill" id="bkPill">Treatment <em>₹0</em></div>
+
+    <span class="blbl">Select Doctor</span>
+    <div class="doc-picks" id="docPicks"></div>
+
+    <span class="blbl">Preferred Date</span>
+    <input type="date" class="bk-input" id="bkDate" style="margin-bottom:16px;">
+
+    <span class="blbl">Time Slot</span>
+    <div class="slots-grid" id="slotsGrid" style="margin-bottom:18px;"></div>
+
+    <span class="blbl">Your Details</span>
+    <input class="bk-input" type="text" id="bkName" placeholder="Full Name">
+    <input class="bk-input" type="tel" id="bkPhone" placeholder="WhatsApp Number">
+
+    <button class="wa-btn" onclick="confirmBook()">
+      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Book Consultation via WhatsApp
+    </button>
+  </div>
+</section>
+
+<!-- ════ §2 RESULTS & TRUST ════ -->
+<section class="sec trust-bg" id="results">
+  <div class="sec-eye">Real Results</div>
+  <h2 class="sec-h">Success <em>Stories</em></h2>
+  <div class="sec-rule"></div>
+
+  <div class="stats-row">
+    <div class="stat-box"><div class="sb-n">4.9★</div><div class="sb-l">Avg Rating</div></div>
+    <div class="stat-box"><div class="sb-n">2,100+</div><div class="sb-l">Patients</div></div>
+    <div class="stat-box"><div class="sb-n">94%</div><div class="sb-l">Success Rate</div></div>
+  </div>
+
+  <div class="timeline-card">
+    <div class="tc-header">
+      <div class="tc-avatar">AK</div>
+      <div>
+        <div class="tc-patient">Ananya Kapoor</div>
+        <div class="tc-meta">Acne Treatment Program · 6 Weeks</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">✓</div>
+        <div><div class="tl-date">Week 1 · 10 Feb</div><div class="tl-treatment">Consultation & Skin Analysis</div><div class="tl-note">Dr. Rekha Nair · Diagnosed moderate cystic acne</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✓</div>
+        <div><div class="tl-date">Week 2 · 18 Feb</div><div class="tl-treatment">Glycolic Chemical Peel</div><div class="tl-note">30% glycolic peel · Some redness for 48 hrs</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">✓</div>
+        <div><div class="tl-date">Week 4 · 4 Mar</div><div class="tl-treatment">LED Phototherapy</div><div class="tl-note">Blue + red light · Inflammation visibly reduced</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--gold);color:var(--gold);">→</div>
+        <div><div class="tl-date" style="color:var(--gold);">Week 6 · 20 Mar</div><div class="tl-treatment">Acne Control Facial</div><div class="tl-note" style="color:var(--gold-l);">Upcoming — Final session</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <div class="test-stars">★★★★★</div>
+    <div class="test-text">"I struggled with acne for 7 years and tried everything. After 5 sessions at Lumina, my skin has never looked better. Dr. Rekha is phenomenal."</div>
+    <div class="test-name">— Priya S., 27 · Software Engineer</div>
+  </div>
+</section>
+
+<!-- ════ §3 SKIN QUIZ ════ -->
+<section class="sec quiz-bg" id="quiz">
+  <div class="sec-eye">Personalised</div>
+  <h2 class="sec-h">Skin <em>Analysis</em></h2>
+  <div class="sec-rule"></div>
+
+  <div class="quiz-card" id="quizCard">
+    <div class="quiz-prog">
+      <div class="qp-row" id="qpRow"></div>
+      <div class="qp-lbl"><span id="qpLbl">Question 1 of 3</span><span id="qpPct">33%</span></div>
+    </div>
+    <div class="quiz-q" id="qQ"></div>
+    <div class="chips" id="qChips"></div>
+    <div class="quiz-nav">
+      <button class="qbtn" id="qBk" onclick="qBack()" style="display:none">← Back</button>
+      <button class="qbtn pri" id="qFwd" onclick="qForward()">Next →</button>
+    </div>
+  </div>
+
+  <div class="quiz-result" id="quizResult">
+    <div class="score-wrap">
+      <div class="score-lbl">Skin Health Score</div>
+      <svg class="score-arc" viewBox="0 0 180 100">
+        <path d="M 10 90 A 80 80 0 0 1 170 90" fill="none" stroke="#CDF0EB" stroke-width="14" stroke-linecap="round"/>
+        <path id="arcPath" d="M 10 90 A 80 80 0 0 1 170 90" fill="none" stroke="#0A7B6E" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
+        <text id="arcNum" x="90" y="82" text-anchor="middle" font-family="DM Serif Display,serif" font-size="26" fill="#1A2E2C">–</text>
+      </svg>
+      <div class="score-grade" id="scoreGrade">–</div>
+      <div class="score-sub" id="scoreSub">Based on your answers</div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-title">Your Recommended Treatment Plan</div>
+      <div class="plan-timeline" id="planTl"></div>
+    </div>
+
+    <div class="recs" id="recs"></div>
+
+    <button class="quiz-wa-btn" onclick="quizWA()">
+      <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Get This Plan on WhatsApp
+    </button>
+    <button class="retake-btn" onclick="retakeQuiz()">Retake Assessment</button>
+  </div>
+</section>
+
+<!-- ════ §4 PATIENT PORTAL ════ -->
+<section class="sec portal-bg" id="portal">
+  <div class="sec-eye">Patient System</div>
+  <h2 class="sec-h">Patient <em>Portal</em></h2>
+  <div class="sec-rule"></div>
+
+  <!-- Patient header -->
+  <div class="patient-hdr">
+    <div class="pat-av">PS</div>
+    <div>
+      <div class="pat-name">Priya Sharma</div>
+      <div class="pat-id">LUM-2024-0142</div>
+    </div>
+    <div class="pat-since">Patient Since<span>Jan 2024</span></div>
+  </div>
+
+  <!-- Portal tabs -->
+  <div class="portal-tabs">
+    <button class="ptab active" onclick="switchPortal('history',this)">History</button>
+    <button class="ptab" onclick="switchPortal('rx',this)">Prescription</button>
+    <button class="ptab" onclick="switchPortal('reminder',this)">Reminder</button>
+  </div>
+
+  <!-- History panel -->
+  <div class="portal-panel active" id="panel-history">
+    <div class="sess-card">
+      <div class="sess-num">1</div>
+      <div class="sess-info">
+        <div class="sess-date">10 Feb 2025</div>
+        <div class="sess-treatment">Initial Consultation</div>
+        <div class="sess-detail">Skin analysis · Photography · Diagnosis: Moderate cystic acne</div>
+        <div class="sess-dr">Dr. Rekha Nair</div>
+      </div>
+    </div>
+    <div class="sess-card">
+      <div class="sess-num">2</div>
+      <div class="sess-info">
+        <div class="sess-date">18 Feb 2025</div>
+        <div class="sess-treatment">Chemical Peel</div>
+        <div class="sess-detail">Products: 30% Glycolic Acid Peel · Neutralised after 3 min</div>
+        <div class="sess-dr">Dr. Rekha Nair</div>
+      </div>
+    </div>
+    <div class="sess-card">
+      <div class="sess-num">3</div>
+      <div class="sess-info">
+        <div class="sess-date">4 Mar 2025</div>
+        <div class="sess-treatment">LED Phototherapy</div>
+        <div class="sess-detail">Blue light (415nm) + Red light (630nm) · 20 min · Acne inflammation visibly reduced</div>
+        <div class="sess-dr">Dr. Sana Kapoor</div>
+      </div>
+    </div>
+    <div style="padding:12px 14px;background:white;border:1px dashed rgba(10,123,110,0.2);text-align:center;font-size:12px;color:var(--muted);">
+      Session 4 upcoming · 20 Mar 2025
+    </div>
+  </div>
+
+  <!-- Prescription panel -->
+  <div class="portal-panel" id="panel-rx">
+    <div class="rx-card">
+      <div class="rx-header">
+        <div><div class="rx-title">Digital Prescription</div><div style="font-size:11px;color:var(--muted);margin-top:2px;">Lumina Skin Studio · Dr. Rekha Nair</div></div>
+        <div class="rx-date">4 Mar 2025</div>
+      </div>
+
+      <div class="rx-section">
+        <div class="rx-timing">Morning</div>
+        <div class="rx-item"><div class="rx-icon">🧴</div><div><div class="rx-name">Salicylic Acid Face Wash (2%)</div><div class="rx-use">Use twice daily. Lather for 60 seconds.</div></div></div>
+        <div class="rx-item"><div class="rx-icon">🌞</div><div><div class="rx-name">SPF 50 Sunscreen</div><div class="rx-use">Apply 30 mins before going out. Reapply every 3 hrs.</div></div></div>
+      </div>
+
+      <div class="rx-section">
+        <div class="rx-timing">Night</div>
+        <div class="rx-item"><div class="rx-icon">💊</div><div><div class="rx-name">Adapalene Gel (0.1%)</div><div class="rx-use">Apply thin layer to affected areas only. Avoid eye area.</div></div></div>
+        <div class="rx-item"><div class="rx-icon">💧</div><div><div class="rx-name">Ceramide Repair Cream</div><div class="rx-use">Apply after adapalene, every night.</div></div></div>
+      </div>
+
+      <div class="rx-btns">
+        <button class="rx-btn outline" onclick="toast('Downloading prescription PDF…')">⬇ Download</button>
+        <button class="rx-btn teal" onclick="rxWA()">
+          <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Share
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reminder panel -->
+  <div class="portal-panel" id="panel-reminder">
+    <div class="reminder-card">
+      <div class="rem-header">
+        <div class="rem-icon">📅</div>
+        <div>
+          <div class="rem-title">Upcoming Appointment</div>
+          <div class="rem-sub">Automated reminder — sent 24 hrs before</div>
+        </div>
+      </div>
+      <div class="rem-details">
+        <div class="rem-row"><div class="rem-label">Treatment</div><div class="rem-value">Acne Control Facial</div></div>
+        <div class="rem-row"><div class="rem-label">Date</div><div class="rem-value" style="color:var(--teal);font-weight:600;">20 March 2025</div></div>
+        <div class="rem-row"><div class="rem-label">Time</div><div class="rem-value">2:00 PM</div></div>
+        <div class="rem-row"><div class="rem-label">Doctor</div><div class="rem-value">Dr. Rekha Nair</div></div>
+      </div>
+      <button class="rem-wa-btn" onclick="reminderWA()">
+        <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6-554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Confirm Appointment on WhatsApp
+      </button>
+    </div>
+    <div class="portal-label">
+      <strong>Every patient gets this automatically.</strong><br>
+      Appointment reminders sent 24 hrs before — reducing no-shows by up to 60%.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo"><em>Lumina</em> Skin Studio</div>
+  <div class="footer-sub">Dermatology & Aesthetics · Bangalore</div>
+  <div class="footer-info">12, 5th Block, Koramangala · Bangalore 560095<br>hello@luminaskinstudio.in</div>
+  <div class="footer-rule"></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══ DATA ═══ */
+const services = {
+  skin:[
+    {id:'hydra',icon:'💧',name:'HydraFacial',desc:'Deep cleanse, exfoliate & infuse serums',price:'₹3,500',dur:'60 min'},
+    {id:'acne',icon:'🌿',name:'Acne Treatment',desc:'Targeted acne control & scar reduction',price:'₹2,500',dur:'45 min'},
+    {id:'peel',icon:'✨',name:'Chemical Peel',desc:'Glycolic or lactic acid peel for radiance',price:'₹4,000',dur:'45 min'},
+  ],
+  laser:[
+    {id:'lhr',icon:'🔆',name:'Laser Hair Removal',desc:'Permanent hair reduction with diode laser',price:'₹5,000',dur:'Per session'},
+    {id:'pigment',icon:'🎯',name:'Pigmentation Laser',desc:'Q-switched laser for dark spots & melasma',price:'₹4,500',dur:'30 min'},
+  ],
+  aesthetic:[
+    {id:'botox',icon:'💉',name:'Botox',desc:'FDA-approved wrinkle relaxation treatment',price:'₹12,000',dur:'30 min'},
+    {id:'filler',icon:'💎',name:'Dermal Fillers',desc:'Hyaluronic acid for volume & contouring',price:'₹18,000',dur:'45 min'},
+  ]
+};
+
+const doctors = [
+  {id:0,initials:'RN',bg:'linear-gradient(135deg,var(--teal),var(--teal-deep))',name:'Dr. Rekha Nair',spec:'MBBS, MD — Dermatology & Aesthetics · 12 yrs'},
+  {id:1,initials:'SK',bg:'linear-gradient(135deg,var(--gold),#8A6010)',name:'Dr. Sana Kapoor',spec:'MBBS, MD — Cosmetic Dermatology · 8 yrs'},
+];
+
+const slots=[
+  {t:'10:00 AM',b:false},{t:'11:00 AM',b:false},
+  {t:'12:30 PM',b:true},{t:'2:00 PM',b:false},
+  {t:'4:00 PM',b:false},{t:'6:00 PM',b:true},
+];
+
+const quizQs=[
+  {q:'What is your skin type?',opts:['Oily','Dry','Combination','Sensitive']},
+  {q:'What is your main skin concern?',opts:['Acne & Breakouts','Pigmentation','Dark Circles','Anti-Aging']},
+  {q:'How often do you get breakouts?',opts:['Weekly','Monthly','Rarely','Never']},
+];
+
+const planMap={
+  'Acne & Breakouts':{steps:['Week 1 — Consultation & skin analysis','Week 2 — Chemical peel (glycolic)','Week 4 — LED phototherapy','Week 6 — Acne control facial'],recs:[{i:'🌿',t:'Start with a 6-session Acne Treatment Package for best results.'},{i:'🧴',t:'Daily use of salicylic acid face wash will maintain results between sessions.'},{i:'🎯',t:'LED phototherapy combined with peels reduces active acne by up to 80%.'}]},
+  'Pigmentation':{steps:['Week 1 — Skin photography & diagnosis','Week 2 — Q-switched laser session 1','Week 4 — Brightening chemical peel','Week 6 — Laser session 2 + review'],recs:[{i:'🎯',t:'Our Pigmentation Laser Package (6 sessions) is ideal for your concern.'},{i:'🌞',t:'SPF 50 sunscreen is non-negotiable — UV exposure worsens pigmentation.'},{i:'💡',t:'Results are typically visible after session 3 and continue improving.'}]},
+  'Dark Circles':{steps:['Week 1 — Under-eye assessment','Week 2 — PRP eye treatment','Week 4 — Filler consultation','Week 6 — Review & maintenance plan'],recs:[{i:'👁️',t:'Under-eye PRP treatment stimulates collagen and reduces hollowness.'},{i:'💉',t:'Tear trough fillers can provide immediate, dramatic improvement.'},{i:'😴',t:'Sleep quality and hydration significantly affect under-eye appearance.'}]},
+  'Anti-Aging':{steps:['Week 1 — Skin age analysis','Week 2 — Botox consultation','Week 3 — Botox treatment','Week 6 — Review & top-up plan'],recs:[{i:'💉',t:'Botox is most effective for forehead lines and crow\'s feet — results last 4–6 months.'},{i:'💎',t:'Fillers restore lost volume in cheeks and nasolabial folds for a lifted look.'},{i:'✨',t:'Monthly HydraFacials maintain skin texture and slow visible ageing.'}]},
+};
+
+/* ═══ STATE ═══ */
+let curTab='skin', selSvc=null, selDoc=null, selSlot=null;
+let qStep=0, qSels=Array(3).fill(null), qAnws=Array(3).fill(null);
+let quizScore=0;
+
+/* ═══ PKG DOTS ═══ */
+function renderPkgDots(){
+  const done=3,total=6;
+  document.getElementById('pkgDots').innerHTML=Array.from({length:total},(_,i)=>
+    `<div class="pkg-dot ${i<done?'done':'rem'}" style="${i<done?`animation-delay:${i*.08}s`:''}">${i<done?'✓':''}</div>`
+  ).join('');
+}
+
+/* ═══ SERVICES ═══ */
+function renderSvcs(){
+  document.getElementById('svcList').innerHTML=services[curTab].map((s,i)=>`
+    <div class="svc-card ${selSvc?.id===s.id?'sel':''}" style="animation-delay:${i*.07}s" onclick="pickSvc('${s.id}')">
+      <div class="sc-row">
+        <div class="sc-icon">${s.icon}</div>
+        <div class="sc-info">
+          <div class="sc-name">${s.name}</div>
+          <div class="sc-desc">${s.desc}</div>
+        </div>
+        <div class="sc-right">
+          <span class="sc-price">${s.price}</span>
+          <div class="sc-dur">${s.dur}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchTab(tab,btn){
+  curTab=tab;
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSvcs();
+}
+
+function pickSvc(id){
+  const all=[...services.skin,...services.laser,...services.aesthetic];
+  selSvc=all.find(s=>s.id===id);
+  renderSvcs();
+}
+
+function goBook(){
+  if(!selSvc){toast('Please select a treatment first');return;}
+  document.getElementById('bkPill').innerHTML=`${selSvc.icon} ${selSvc.name} <em>${selSvc.price}</em>`;
+  renderDocPicks();
+  renderSlots();
+  document.getElementById('bkDate').min=new Date().toISOString().split('T')[0];
+  document.getElementById('bkDate').value='';
+  document.getElementById('svcView').style.display='none';
+  document.getElementById('bkFlow').classList.add('active');
+  window.scrollTo({top:document.getElementById('booking').offsetTop-20,behavior:'smooth'});
+}
+
+function backSvc(){
+  document.getElementById('svcView').style.display='block';
+  document.getElementById('bkFlow').classList.remove('active');
+  selDoc=null;selSlot=null;
+}
+
+function renderDocPicks(){
+  document.getElementById('docPicks').innerHTML=doctors.map((d,i)=>`
+    <div class="dp ${selDoc===i?'sel':''}" onclick="pickDoc(${i})">
+      <div class="dp-av" style="background:${d.bg};color:white">${d.initials}</div>
+      <div class="dp-info"><div class="dp-name">${d.name}</div><div class="dp-spec">${d.spec}</div></div>
+      <div class="dp-radio">${selDoc===i?'✓':''}</div>
+    </div>
+  `).join('');
+}
+
+function pickDoc(i){selDoc=i;renderDocPicks();}
+
+function renderSlots(){
+  document.getElementById('slotsGrid').innerHTML=slots.map((sl,i)=>`
+    <button class="slot ${sl.b?'booked':''} ${selSlot===i&&!sl.b?'sel':''}"
+      ${sl.b?'disabled':`onclick="pickSlot(${i})"`}>
+      ${sl.t}${sl.b?'<br><span style="font-size:9px">Full</span>':''}
+    </button>
+  `).join('');
+}
+
+function pickSlot(i){selSlot=i;renderSlots();}
+
+function confirmBook(){
+  const name=document.getElementById('bkName').value.trim();
+  const phone=document.getElementById('bkPhone').value.trim();
+  const date=document.getElementById('bkDate').value;
+  if(selDoc===null){toast('Please choose a doctor');return;}
+  if(!date){toast('Please select a date');return;}
+  if(selSlot===null){toast('Please select a time slot');return;}
+  if(!name||!phone){toast('Please enter your name and number');return;}
+  const ds=new Date(date).toLocaleDateString('en-IN',{day:'numeric',month:'long',weekday:'short'});
+  const msg=encodeURIComponent(
+    `✨ Lumina Skin Studio Appointment Request\n\n`+
+    `✦ Treatment: ${selSvc.name}\n`+
+    `✦ Price: ${selSvc.price}\n`+
+    `✦ Doctor: ${doctors[selDoc].name}\n`+
+    `✦ Date: ${ds}\n`+
+    `✦ Time: ${slots[selSlot].t}\n\n`+
+    `Client Details\nName: ${name}\nPhone: ${phone}\n\nPlease confirm availability.`
+  );
+  window.open(`https://wa.me/919999999999?text=${msg}`,'_blank');
+}
+
+/* ═══ QUIZ ═══ */
+function renderQuiz(){
+  const q=quizQs[qStep];
+  const total=quizQs.length;
+  const pct=Math.round(((qStep+1)/total)*100);
+  document.getElementById('qpLbl').textContent=`Question ${qStep+1} of ${total}`;
+  document.getElementById('qpPct').textContent=pct+'%';
+  document.getElementById('qpRow').innerHTML=quizQs.map((_,i)=>
+    `<div class="qp-seg ${i<qStep?'done':i===qStep?'active':''}"></div>`
+  ).join('');
+  document.getElementById('qQ').textContent=q.q;
+  document.getElementById('qChips').innerHTML=q.opts.map(o=>
+    `<div class="chip ${qSels[qStep]===o?'sel':''}" onclick="pickChip('${o}')">${o}</div>`
+  ).join('');
+  document.getElementById('qBk').style.display=qStep>0?'inline-flex':'none';
+  document.getElementById('qFwd').textContent=qStep===total-1?'See My Plan →':'Next →';
+}
+
+function pickChip(val){qSels[qStep]=val;renderQuiz();}
+
+function qForward(){
+  if(!qSels[qStep]){toast('Please select an option');return;}
+  qAnws[qStep]=qSels[qStep];
+  if(qStep<quizQs.length-1){qStep++;renderQuiz();}
+  else showQuizResult();
+}
+
+function qBack(){if(qStep>0){qStep--;renderQuiz();}}
+
+function showQuizResult(){
+  // Score: higher = better skin habits (simplified logic)
+  const scores={
+    skin:{'Oily':6,'Dry':7,'Combination':8,'Sensitive':7},
+    concern:{'Acne & Breakouts':5,'Pigmentation':6,'Dark Circles':7,'Anti-Aging':8},
+    breakout:{'Weekly':3,'Monthly':6,'Rarely':9,'Never':10}
+  };
+  quizScore=Math.round((
+    (scores.skin[qAnws[0]]||6)+
+    (scores.concern[qAnws[1]]||6)+
+    (scores.breakout[qAnws[2]]||6)
+  )/3*10);
+
+  document.getElementById('quizCard').style.display='none';
+  document.getElementById('quizResult').classList.add('show');
+
+  // Animate arc
+  setTimeout(()=>{
+    const arc=document.getElementById('arcPath');
+    const num=document.getElementById('arcNum');
+    const offset=251.3-(quizScore/100)*251.3;
+    arc.style.strokeDashoffset=offset;
+    const color=quizScore>=70?'var(--teal)':quizScore>=45?'var(--amber)':'var(--red)';
+    arc.style.stroke=color;
+    num.textContent=quizScore;
+    num.style.fill=color;
+  },100);
+
+  const grade=quizScore>=75?'Good Skin Health':quizScore>=50?'Moderate — Treatment Advised':'Needs Attention — Consult Soon';
+  const gradeColor=quizScore>=75?'var(--teal)':quizScore>=50?'var(--amber)':'var(--red)';
+  document.getElementById('scoreGrade').textContent=grade;
+  document.getElementById('scoreGrade').style.color=gradeColor;
+  document.getElementById('scoreSub').textContent=`Based on your ${qAnws[0]} skin profile`;
+
+  // Plan
+  const concern=qAnws[1]||'Acne & Breakouts';
+  const plan=planMap[concern]||planMap['Acne & Breakouts'];
+  document.getElementById('planTl').innerHTML=plan.steps.map(s=>{
+    const parts=s.split(' — ');
+    return`<div class="plan-item"><div class="plan-dot"></div><div class="plan-week">${parts[0]}</div><div class="plan-step">${parts[1]||''}</div></div>`;
+  }).join('');
+  document.getElementById('recs').innerHTML=plan.recs.map(r=>
+    `<div class="rec"><div class="rec-i">${r.i}</div><div class="rec-t">${r.t}</div></div>`
+  ).join('');
+}
+
+function quizWA(){
+  const concern=qAnws[1]||'—';
+  const plan=planMap[concern]||planMap['Acne & Breakouts'];
+  const msg=encodeURIComponent(
+    `✨ Skin Analysis Result – Lumina Skin Studio\n\n`+
+    `Skin Type: ${qAnws[0]||'—'}\n`+
+    `Main Concern: ${concern}\n`+
+    `Breakout Frequency: ${qAnws[2]||'—'}\n`+
+    `Skin Score: ${quizScore}/100\n\n`+
+    `Recommended Treatments:\n`+
+    plan.recs.map(r=>`✦ ${r.t.split('.')[0]}`).join('\n')+
+    `\n\nPlease suggest available consultation slots.`
+  );
+  window.open(`https://wa.me/919999999999?text=${msg}`,'_blank');
+}
+
+function retakeQuiz(){
+  qStep=0;qAnws=Array(3).fill(null);qSels=Array(3).fill(null);quizScore=0;
+  document.getElementById('quizCard').style.display='block';
+  document.getElementById('quizResult').classList.remove('show');
+  document.getElementById('arcPath').style.strokeDashoffset='251.3';
+  document.getElementById('arcNum').textContent='–';
+  renderQuiz();
+}
+
+/* ═══ PORTAL ═══ */
+function switchPortal(tab,btn){
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.portal-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+
+/* ═══ WHATSAPP HELPERS ═══ */
+function rxWA(){
+  const msg=encodeURIComponent(
+    `✨ Digital Prescription – Lumina Skin Studio\n\nPatient: Priya Sharma\nDate: 4 Mar 2025\nDoctor: Dr. Rekha Nair\n\nMorning:\n✦ Salicylic Acid Face Wash (2%) – twice daily\n✦ SPF 50 Sunscreen – 30 mins before going out\n\nNight:\n✦ Adapalene Gel (0.1%) – thin layer on affected areas\n✦ Ceramide Repair Cream – after adapalene\n\nPlease contact us with any questions.`
+  );
+  window.open(`https://wa.me/919999999999?text=${msg}`,'_blank');
+}
+
+function reminderWA(){
+  const msg=encodeURIComponent(
+    `✨ Lumina Skin Studio – Appointment Reminder\n\nHi Priya,\n\nThis is a reminder for your upcoming treatment:\n\n✦ Treatment: Acne Control Facial\n✦ Date: 20 March 2025\n✦ Time: 2:00 PM\n✦ Doctor: Dr. Rekha Nair\n\nPlease confirm your availability by replying YES.\n\nSee you soon! 🌿`
+  );
+  window.open(`https://wa.me/919999999999?text=${msg}`,'_blank');
+}
+
+/* ═══ TOAST ═══ */
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2800);
+}
+
+/* ═══ INIT ═══ */
+renderPkgDots();
+renderSvcs();
+renderQuiz();
+document.getElementById('bkDate').min=new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
